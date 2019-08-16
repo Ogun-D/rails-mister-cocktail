@@ -4,8 +4,13 @@
 
 <div class="main-body">
   <% @cocktails.each do |cocktail| %>
-    <div class="cocktail">
-        <h3><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
+    <div class="cocktail-container">
+      <div class="cocktail-image">
+
+      </div>
+      <div class="cocktail-content">
+          <h3><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
+      </div>
     </div>
   <% end %>
 </div>
