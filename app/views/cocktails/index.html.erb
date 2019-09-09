@@ -1,21 +1,28 @@
 <div class="navbar">
   <h2>Cocktails</h2>
+   <%= form_tag cocktails_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "search-bar",
+      placeholder: "Search Cocktails"  %>
+    <% end %>
 </div>
 
 <div class="main-body">
-  <% @cocktails.each do |cocktail| %>
-    <div class="cocktail-container">
-      <div class="cocktail-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-         url('<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>')">
 
-      </div>
-      <div class="cocktail-content">
-          <h3><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
-      </div>
-    </div>
+  <% @cocktails.each do |cocktail| %>
+    <%= link_to cocktail_path(cocktail), class: 'cocktail-container' do %>
+        <div class="cocktail-image">
+          <%= cl_image_tag cocktail.photo, height: 1000, crop: :fill %>
+        </div>
+        <div class="cocktail-content">
+            <h3><%= cocktail.name%></h3>
+        </div>
+    <% end %>
   <% end %>
+
 </div>
 
 <br>
 
-<%= link_to "Add a Cocktail", new_cocktail_path %>
+<%= link_to "Add a Cocktail", new_cocktail_path, class: 'add-link' %>
