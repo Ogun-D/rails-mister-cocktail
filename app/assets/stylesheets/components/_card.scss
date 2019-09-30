@@ -28,9 +28,8 @@ a.cocktail-container {
   color: white;
 }
 
-
 .cocktail-card {
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2));
 }
 
 .cocktail-content {
@@ -59,6 +58,8 @@ a.add-link {
   text-decoration: none;
 }
 
-
-
-
+@media only screen and (max-width: 767px) {
+  .cocktail-container {
+    margin-bottom: 20px;
+  }
+}

@@ -1,28 +1,35 @@
-<div class="navbar">
-  <h2>Cocktails</h2>
-   <%= form_tag cocktails_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "search-bar",
-      placeholder: "Search Cocktails"  %>
-    <% end %>
+
+<div class="ui container">
+  <div class="navbar">
+    <h2 class="nav-title">Elegant Cocktails</h2>
+     <%= form_tag cocktails_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "search-bar",
+        placeholder: "Search Cocktails"  %>
+      <% end %>
+  </div>
+
+  <div class="ui container">
+
+    <div class="main-body">
+
+      <% @cocktails.each do |cocktail| %>
+        <%= link_to cocktail_path(cocktail), class: 'cocktail-container' do %>
+            <div class="cocktail-image">
+              <%= cl_image_tag cocktail.photo, height: 1000, crop: :fill %>
+            </div>
+            <div class="cocktail-content">
+                <h3><%= cocktail.name%></h3>
+            </div>
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+
+  <!-- <br> -->
+
+  <%= link_to "Add a Cocktail", new_cocktail_path, class: 'add-link' %>
+
 </div>
-
-<div class="main-body">
-
-  <% @cocktails.each do |cocktail| %>
-    <%= link_to cocktail_path(cocktail), class: 'cocktail-container' do %>
-        <div class="cocktail-image">
-          <%= cl_image_tag cocktail.photo, height: 1000, crop: :fill %>
-        </div>
-        <div class="cocktail-content">
-            <h3><%= cocktail.name%></h3>
-        </div>
-    <% end %>
-  <% end %>
-
-</div>
-
-<br>
-
-<%= link_to "Add a Cocktail", new_cocktail_path, class: 'add-link' %>

@@ -19,4 +19,13 @@
   margin-bottom: 20px;
 }
 
+@media only screen and (max-width: 767px) {
+  .navbar {
+    border-bottom: none;
+  }
+
+  .nav-title {
+    margin-bottom: 20px;
+  }
+}
 
