@@ -6,14 +6,9 @@ body {
 }
 
 .main-body {
-  // padding: 40px;
-  // display: flex;
-  // flex-flow: row wrap;
-  // justify-content: space-evenly;
+  justify-content: space-evenly;
   display: grid;
   grid-template-columns: 200px 200px 200px;
-  // justify-items: center;
-  // align-items: center;
   grid-gap: 50px;
   margin-bottom: 20px;
 }
